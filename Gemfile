@@ -10,6 +10,9 @@ gem 'net-ssh'
 gem 'net-sftp'
 gem 'puma'
 
+# Foreign Key in migrations
+gem 'foreigner'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets

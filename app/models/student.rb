@@ -5,6 +5,7 @@ class Student < ActiveRecord::Base
   has_many :discipline_incidents, -> { extending SortBySchoolYear }, dependent: :destroy
   has_many :mcas_results, dependent: :destroy
   has_many :star_results, dependent: :destroy
+  has_many :comments
   validates_presence_of :state_id
   validates_uniqueness_of :state_id
   include DateToSchoolYear

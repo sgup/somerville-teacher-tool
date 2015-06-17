@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150523111143) do
+ActiveRecord::Schema.define(version: 20150617010521) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,14 @@ ActiveRecord::Schema.define(version: 20150523111143) do
     t.boolean  "tardy"
     t.integer  "school_year_id"
     t.datetime "event_date"
+  end
+
+  create_table "comments", force: true do |t|
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "student_id"
+    t.integer  "educator_id"
   end
 
   create_table "discipline_incidents", force: true do |t|
@@ -141,5 +149,8 @@ ActiveRecord::Schema.define(version: 20150523111143) do
     t.string   "student_address"
     t.datetime "registration_date"
   end
+
+  add_foreign_key "comments", "educators", name: "comments_educator_id_fk"
+  add_foreign_key "comments", "students", name: "comments_student_id_fk"
 
 end
